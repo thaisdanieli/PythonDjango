@@ -15,14 +15,9 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-
-# HTTP REQUEST
-def my_view(request):
-    ...
-    #Return HTTP Response
+from django.urls import include, path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('sobre/', my_view),
+    path('', include('sac.urls')), # Incluindo urls do APP sac 
 ]
