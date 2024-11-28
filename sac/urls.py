@@ -1,9 +1,7 @@
 from django.urls import path
-from sac.views import home, complaint, sobre
+from sac.views import home
 
 
 urlpatterns = [
     path('', home),
-    path('complaint/', complaint),
-    path('SOBRE/', sobre),
 ]
