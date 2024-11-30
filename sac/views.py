@@ -7,4 +7,4 @@ from django.shortcuts import render  # lê o arquivo e renderiza
 
 def home(request):
     return render(request, 'sac/pages/home.html',
-                  context={'name': 'Thais Danieli', })
+                  context={'name': 'Recipes', })

@@ -1,20 +1,40 @@
 <head>
+    <!-- Define o conjunto de caracteres como UTF-8, garantindo suporte a caracteres especiais -->
     <meta charset="UTF-8">
+
+    <!-- Define o viewport para dispositivos móveis, ajustando escala e layout -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- Importa a biblioteca Font Awesome para uso de ícones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
         integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Importa o núcleo da biblioteca Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/fontawesome.min.css"
         integrity="sha512-lauN4D/0AgFUGvmMR+knQnbOADyD/XuQ8VF18I8Ll0+TLvsujshyxvU+uzogmQbSq6qJd5jnUdYtK8ShxXMlSg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Importa ícones sólidos da biblioteca Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/solid.min.css"
         integrity="sha512-bdqdas3Yr82pkTg5i0X1gcAT3tBXz/8H3J1ec7RyEKAvr/YiSCJNV2dnkukmL8CicjKb9rxmd+ILK8Kg2o2wvQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+    <!-- Precarrega a conexão com o Google Fonts para melhorar o carregamento -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <!-- Precarrega a conexão com os servidores de fontes para maior eficiência -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Importa a fonte 'Roboto Slab' do Google Fonts, usada em títulos -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
+
+    <!-- Define o título da página que será exibido na aba do navegador -->
     <title>SAC</title>
 
+    <!-- Estilo interno da página -->
     <style>
+        /* Define variáveis CSS para reutilização em todo o código */
         :root {
             --color-primary: #269fe6;
             --color-primary-hover: #2086c2;
@@ -47,51 +67,250 @@
             --color-gray-7: #4b4b4b;
             --color-gray-8: #323232;
             --color-gray-9: #191919;
+
+
             --font-primary: sans-serif;
+            /* Fonte principal */
             --font-headings: 'Roboto Slab', serif;
+            /* Fonte para títulos */
             --spacing-gutter-medium: 3rem;
+            /* Espaçamento médio */
             --spacing-gutter-large: 4rem;
         }
 
+        /* Estilo base: remove margens, paddings e define box-sizing */
         * {
             padding: 0;
             margin: 0;
             box-sizing: border-box;
         }
 
+        /* Define o tamanho da fonte base no HTML para facilitar cálculos rem */
         html {
             font-size: 62.5%;
+            /* 1rem = 10px */
         }
 
+        /* Define o estilo padrão do corpo da página */
         body {
             font-size: 1.6rem;
-            /*1.6rem equivale a 16px, 1.2 é 12px*/
+            /* Fonte principal */
             font-family: var(--font-primary);
+            /* Aplica fonte primária */
+            background: var(--color-gray-1);
+            /* Fundo cinza claro */
+            color: var(--color-dark-text);
         }
 
+        /* Aplica fonte personalizada para todos os títulos */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: var(--font-headings);
+        }
+
+
+
+        /* Estiliza um container centralizado */
         .container {
             max-width: 144rem;
+            /* Largura máxima */
             margin: 0 auto;
+            /* Centraliza o container */
+            padding: var(--spacing-gutter-medium);
+            /* Espaçamento interno */
         }
 
+        /* Fundo do cabeçalho principal */
         .main-header-container {
-            background: #13141f;
-            background: var(--color-primary-dark)
+            background: var(--color-primary-dark);
+            /* Azul escuro */
         }
 
+        /* Estilo do logo principal */
         .main-logo {
             font-size: 4rem;
-            color: var(--color--white);
+            /* Tamanho grande */
+            color: var(--color-white);
+            /* Cor branca */
             text-decoration: none;
+            /* Remove sublinhado */
             display: flex;
+            /* Ativa o flexbox */
             flex-flow: row nowrap;
             align-items: center;
+            /* Alinha ao centro */
             justify-content: center;
-            background: red;
+            /* Centraliza o conteúdo */
             width: fit-content;
             margin: 0 auto;
+            /* Centraliza horizontalmente */
+        }
+
+        /* Margem direita para o ícone no logo */
+        .main-logo-icon {
+            margin-right: 2rem;
+        }
+
+        /* Estilo do formulário de busca */
+        .search-form {
+            border: .2rem solid var(--color-primary-dark);
+            /* Borda escura */
+            max-width: 64rem;
+            /* Largura máxima */
+            margin: 0 auto;
+            /* Centraliza o formulário */
+            border-radius: .4rem;
+            /* Bordas arredondadas */
+            position: relative;
+            /* Necessário para posicionamento do botão */
+            transition: all 300ms ease-in-out;
+            /* Transição suave */
+        }
+
+        /* Estilo do botão e campo de entrada do formulário */
+        .search-input,
+        .search-button {
+            border: none;
+            /* Remove borda */
+            background: none;
+            /* Fundo transparente */
+            outline: none;
+            padding: 1rem;
+            /* Espaçamento interno */
+        }
+
+        /* Estilo específico para o botão do formulário */
+        .search-button {
+            position: absolute;
+            /* Posiciona no canto */
+            top: 0;
+            /* Alinha ao topo */
+            right: 0;
+            /* Alinha à direita */
+        }
+
+        /* Campo de entrada ocupa toda a largura */
+        .search-input {
+            width: 100%;
+            /* 100% do espaço disponível */
+            padding-right: 3rem;
+            /* Espaçamento para o botão */
+        }
+
+        /* Estilo ao focar no formulário */
+        .search-form:focus-within {
+            border-color: var(--color-primary);
+            /* Altera cor da borda */
+            background: var(--color-white);
+            /* Fundo branco */
+        }
+
+        .search-form:focus-within .search-button {
+            color: var(--color-primary);
+        }
+
+        /* Botão do formulário ao ser focado */
+        .search-button:focus {
+            outline: 1px solid var(--color-primary);
+            background: rgba(0, 0, 0, .5);
+            /* Realce no botão */
+        }
+
+        .main-content {
+            /*background: blue;*/
+            padding-top: 0;
+        }
+
+        .main-content-list {
+            display: grid;
+            /*Define o contêiner como um grid layout, permitindo organizar os elementos internos (itens) em uma grade.*/
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            /*repeat(auto-fit, ...): Cria automaticamente tantas colunas quanto couberem no espaço disponível.*/
+            /*minmax(340px, 1fr): Define que cada coluna deve ter no mínimo 340px e no máximo um espaço fracionado proporcional (1fr) do contêiner.*/
+            gap: var(--spacing-gutter-large);
+            /*Adiciona um espaçamento uniforme entre as colunas e linhas da grade, usando o valor definido pela variável --spacing-gutter-large.*/
+        }
+
+        /*.temp {
+            height: 40rem;
+            background: red;
+        }*/
+
+        .recipe {
+            background: var(--color-white);
+            box-shadow: -5px 5px 10px rgba(0, 0, 0, 20%);
+            /*A Sombra que fica atrás dos quadrados*/
+            transform: scale(1);
+            transition: all 300ms ease-in-out;
+        }
+
+        .recipe img {
+            max-width: 100%;
+            /*Faz com que as imagens dentro de elementos com a classe .recipe nunca excedam a largura do contêiner em que estão.*/
+        }
+
+        .recipe-list-item {
+            max-width: 64rem;
+            /*Limita a largura máxima de elementos com a classe .recipe-list-item a 64 rems (640px se o tamanho base da fonte for 10px).*/
+        }
+
+        .recipe-list-item:hover {
+            transform: scale(1.03);
+            /*Aumenta ligeiramente o tamanho do item (3% maior) ao passar o mouse sobre ele.*/
+            box-shadow: -8px 8px 18px rgba(0, 0, 0, 0.3);
+            /*Adiciona uma sombra inclinada no item, simulando um efeito de elevação.*/
+        }
+
+        .recipe-title-container {
+            padding: 20px;
+            /*Adiciona espaçamento interno uniforme ao redor do contêiner.*/
+            padding-bottom: calc(var(--spacing-gutter-medium)/2);
+            /* Ajusta o espaçamento inferior para metade do valor da variável CSS --spacing-gutter-medium*/
+            padding-bottom: 2rem;
+        }
+
+        .recipe-author {
+            padding: 0 var(--spacing-gutter-medium);
+            /* Aplica espaçamento horizontal (à esquerda e à direita) ao elemento que contém o autor da receita, usando o valor da variável --spacing-gutter-medium. Não há espaçamento vertical.*/
+        }
+
+        /*Adiciona espaçamento interno ao conteúdo da receita. O uso de padding-top: 2rem; substitui o valor padrão da variável para o espaçamento superior.*/
+        .recipe-content {
+            padding: var(--spacing-gutter-medium);
+            /*Adiciona espaçamento interno uniforme em todos os lados do elemento, usando o valor definido pela variável CSS --spacing-gutter-medium.*/
+            padding-top: 2rem;
+            /* Define um espaçamento superior específico de 2rem, que substitui o valor anterior da propriedade padding-top. */
+        }
+
+        /*Estiliza itens relacionados ao autor da receita, definindo uma cor cinza suave e um espaçamento à direita para organização visual.*/
+        .recipe-author-item {
+            color: var(--color-gray-4);
+            /* Define a cor do texto como o valor da variável CSS --color-gray-4. */
+            margin-right: 1rem;
+            /* Adiciona um espaço de 1rem à direita do elemento, separando-o de outros elementos adjacentes horizontalmente. */
+        }
+
+        /*Define a cor padrão dos links associados ao autor como a cor primária.
+*/
+        .recipe-author a {
+            color: var(--color-primary);
+            /* Define a cor do texto dos links dentro do elemento `.recipe-author` como a cor primária. */
+            transition: all 300ms ease-in-out;
+            /* Aplica uma transição suave de 300ms em todas as propriedades CSS que podem ser alteradas, como cor, tamanho, etc., com um efeito de aceleração e desaceleração. */
+            text-decoration: none;
+        }
+
+        /*Altera a cor dos links ao passar o mouse, aplicando uma tonalidade mais escura, criando feedback visual para o usuário.*/
+        .recipe-author a:hover {
+            color: var(--color-primary-dark);
+            /* Muda a cor do texto do link para a cor primária escura quando o mouse passa sobre ele, criando um efeito visual interativo. */
         }
     </style>
-    <script src="http://127.0.0.1:8000/__reload__/reload.js"></script>
 
+    <!-- Script para atualizar automaticamente a página durante o desenvolvimento -->
+    <script src="http://127.0.0.1:8000/__reload__/reload.js"></script>
 </head>
