@@ -1,4 +1,13 @@
-{% include 'sac/partials/head.html' %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    {% include 'sac/partials/head.html' %}
+
+    <!-- Define o título da página que será exibido na aba do navegador -->
+    <title>{% block title %}{% endblock title %} Recipes</title>
+
+</head>
 
 <body>
     {% include 'sac/partials/header.html' %}

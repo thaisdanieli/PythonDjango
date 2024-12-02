@@ -1,4 +1,5 @@
 from django.shortcuts import render  # lê o arquivo e renderiza
+from utils.sac.factory import make_recipe
 
 # Create your views here.
 
@@ -7,9 +8,11 @@ from django.shortcuts import render  # lê o arquivo e renderiza
 
 def home(request):
     return render(request, 'sac/pages/home.html',
-                  context={'name': 'Recipes', })
+                  context={'recipes': [make_recipe() for _ in range(10)],
+                           })
 
 
 def recipe(request, id):
     return render(request, 'sac/pages/recipe-view.html',
-                  context={'name': 'Thais Danieli', })
+                  context={'recipe': make_recipe(),
+                           })
