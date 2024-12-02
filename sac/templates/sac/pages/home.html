@@ -1,15 +1,9 @@
-{% include 'sac/partials/head.html' %}
+{% extends 'global/base.html' %}
 
-<body>
-    {% include 'sac/partials/header.html' %}
-    {% include 'sac/partials/search.html' %}
-
-
-    <main class="main-content-container">
-        <div class="main-content main-content-list container">
-            {% include 'sac/partials/recipe.html' %}
-    </main>
-    {% include 'sac/partials/footer.html' %}
-</body>
-
-</html>
+{% block content %}
+<div class="main-content main-content-list container">
+    {% include 'sac/partials/recipe.html' %}
+    {% include 'sac/partials/recipe.html' %}
+    {% include 'sac/partials/recipe.html' %}
+</div> 
+{% endblock content %}

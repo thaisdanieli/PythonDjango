@@ -8,3 +8,8 @@ from django.shortcuts import render  # lê o arquivo e renderiza
 def home(request):
     return render(request, 'sac/pages/home.html',
                   context={'name': 'Recipes', })
+
+
+def recipe(request, id):
+    return render(request, 'sac/pages/recipe-view.html',
+                  context={'name': 'Thais Danieli', })
