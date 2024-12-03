@@ -8,7 +8,7 @@ from utils.sac.factory import make_recipe
 
 def home(request):
     return render(request, 'sac/pages/home.html',
-                  context={'recipes': [make_recipe() for _ in range(10)],
+                  context={'recipes': [make_recipe() for _ in range(3)],
                            })
 
 
