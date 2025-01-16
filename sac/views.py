@@ -1,5 +1,6 @@
 from django.shortcuts import render  # lê o arquivo e renderiza
 from utils.sac.factory import make_recipe
+from .models import Recipe
 
 # Create your views here.
 
@@ -7,8 +8,16 @@ from utils.sac.factory import make_recipe
 
 
 def home(request):
+    recipes = Recipe.objects.all().order_by('-id')
     return render(request, 'sac/pages/home.html',
-                  context={'recipes': [make_recipe() for _ in range(6)],
+                  context={'recipes': recipes,
+                           })
+
+
+def category(request):
+    recipes = Recipe.objects.filter().order_by('-id')
+    return render(request, 'sac/pages/home.html',
+                  context={'recipes': recipes,
                            })
 
 
