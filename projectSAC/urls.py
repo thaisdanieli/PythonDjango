@@ -16,9 +16,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+# Configurar arquivos estaticos nas urls
+from django.conf.urls.static import static
+# Este módulo contém todas as configurações do projeto
+from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('sac.urls')),  # Incluindo urls do APP sac
-
 ]
+
+# e serve para lidar com os arquivos estáticos (como imagens) e de mídia (como uploads de usuários)
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

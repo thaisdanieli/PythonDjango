@@ -34,11 +34,11 @@ class Recipe(models.Model):
     # DateTimeField-True = No momento da criação ele gera uma data automatica
     created_at = models.DateTimeField(auto_now_add=True)
     # auto_now_add=True: Define que o valor será automaticamente atribuído no momento da criação do registro.
-    update_at = models.DateTimeField(auto_now=False)
+    update_at = models.DateTimeField(auto_now=True)
     # Um campo booleano para indicar se a receita está publicada ou não. default=False: Por padrão, a receita não será publicada.
     is_published = models.BooleanField(default=False)
     # ImageField: Um campo para armazenar imagens. upload_to: Define o caminho onde a imagem será armazenada - e salva a data do upload
-    cover = models.ImageField(upload_to='recibes/covers/%Y/%m%/%d/')
+    cover = models.ImageField(upload_to='recibes/covers/%Y/%m/%d/')
     # adiciona um campo ao modelo para criar uma relação entre a tabela atual e uma tabela chamada Category.
     # Define o que acontece quando um registro relacionado é excluido. SET_NULL: Quando uma categoria é excluída, o valor deste campo na receita é definido como NULL. null=True > Permite que o campo category seja nulo, ou seja, que uma receita não tenha nenhuma categoria associada.
     category = models.ForeignKey(
@@ -47,3 +47,7 @@ class Recipe(models.Model):
     author = models.ForeignKey(
         User, on_delete=models.SET_NULL, null=True
     )
+
+    # Vai retornar o nome da receita no painel de listagem das Recipes
+    def __str__(self):
+        return self.title

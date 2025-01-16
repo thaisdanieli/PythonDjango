@@ -126,6 +126,11 @@ STATICFILES_DIRS = [
 
 STATIC_ROOT = BASE_DIR / 'static'
 
+# Quando um arquivo de mídia é enviado, ele é salvo na pasta media/ e acessível via URLs como http://localhost:8000/media/<nome_do_arquivo>
+MEDIA_URL = '/media/'
+# MEDIA_ROOT > Pasta onde vou salvar os arquivos de media - Arquivos como CSS ou JS estarão disponíveis em URLs como
+MEDIA_ROOT = BASE_DIR / 'media'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
