@@ -38,7 +38,10 @@ class Recipe(models.Model):
     # Um campo booleano para indicar se a receita está publicada ou não. default=False: Por padrão, a receita não será publicada.
     is_published = models.BooleanField(default=False)
     # ImageField: Um campo para armazenar imagens. upload_to: Define o caminho onde a imagem será armazenada - e salva a data do upload
-    cover = models.ImageField(upload_to='recibes/covers/%Y/%m/%d/')
+    # blank=True > Permite que o campo seja deixado em branco no formulário.
+    # default='' > Define o valor padrão para o campo se nenhum valor for especificado.
+    cover = models.ImageField(
+        upload_to='recibes/covers/%Y/%m/%d/', blank=True, default='')
     # adiciona um campo ao modelo para criar uma relação entre a tabela atual e uma tabela chamada Category.
     # Define o que acontece quando um registro relacionado é excluido. SET_NULL: Quando uma categoria é excluída, o valor deste campo na receita é definido como NULL. null=True > Permite que o campo category seja nulo, ou seja, que uma receita não tenha nenhuma categoria associada.
     category = models.ForeignKey(
